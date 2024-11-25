@@ -1,20 +1,19 @@
-﻿
-namespace Promptify.Services.Navigation;
+﻿namespace Promptify.Services.Navigation;
 
 public class MauiNavigationService : INavigationService
 {
-    public Task InitializeAsync()
+    public async Task InitializeAsync()
     {
-        throw new NotImplementedException();
+        await NavigateToAsync("//Main");
     }
 
-    public Task NavigateToAsync(string route, IDictionary<string, object> routeParameters = null)
+    public Task NavigateToAsync(string route, IDictionary<string, object>? routeParameters = null)
     {
-        throw new NotImplementedException();
+        var shellNavigation = new ShellNavigationState(route);
+        return routeParameters != null
+            ? Shell.Current.GoToAsync(shellNavigation, routeParameters)
+            : Shell.Current.GoToAsync(shellNavigation);
     }
 
-    public Task PopAsync()
-    {
-        throw new NotImplementedException();
-    }
+    public Task PopAsync() => Shell.Current.GoToAsync("..");
 }
