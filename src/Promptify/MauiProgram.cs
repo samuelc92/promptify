@@ -1,5 +1,9 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Promptify.Services.Navigation;
+using Promptify.Services.PrePrompt;
+using Promptify.View;
+using Promptify.ViewModels;
 using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace Promptify
@@ -22,7 +26,9 @@ namespace Promptify
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("SegoeUI-Semibold.ttf", "SegoeSemibold");
                     fonts.AddFont("FluentSystemIcons-Regular.ttf", FluentUI.FontFamily);
-                });
+                })
+                .RegisterAppServices()
+                .RegisterPageModels();
 
 #if DEBUG
     		builder.Logging.AddDebug();
@@ -43,6 +49,21 @@ namespace Promptify
             builder.Services.AddTransientWithShellRoute<TaskDetailPage, TaskDetailPageModel>("task");
 
             return builder.Build();
+        }
+
+        public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder builder)
+        {
+            builder.Services.AddSingleton<INavigationService, MauiNavigationService>();
+            builder.Services.AddSingleton<IPrePromptService, PrePromptService>();
+
+            return builder;
+        }
+
+        public static MauiAppBuilder RegisterPageModels(this MauiAppBuilder builder)
+        {
+            builder.Services.AddSingleton<PrePromptPageModel>();
+
+            return builder;
         }
     }
 }
