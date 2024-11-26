@@ -26,6 +26,12 @@
         ContentTemplate="{DataTemplate pages:ManageMetaPage}"
         Route="manage" />
 
+    <ShellContent
+        Title="PrePrompt"
+        Icon="{StaticResource IconMeta}"
+        ContentTemplate="{DataTemplate pages:PrePromptPage}"
+        Route="PrePrompt" />
+
     <Shell.FlyoutFooter>
         <Grid Padding="15">
             <sf:SfSegmentedControl x:Name="ThemeSegmentedControl" 
