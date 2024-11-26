@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Promptify.PageModels"
+             xmlns:models="clr-namespace:Promptify.Models"
+             xmlns:pages="clr-namespace:Promptify.Pages"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:controls="clr-namespace:Promptify.Pages.Controls"
+             xmlns:fonts="clr-namespace:Fonts"
+             x:Class="Promptify.Pages.PrePromptPage"
+             x:DataType="pageModels:PrePromptPageModel"
+             Title="PrePromptPage">
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="{StaticResource LayoutPadding}" Spacing="{StaticResource LayoutSpacing}">
+                <sf:SfTextInputLayout
+                    Hint="Description" >
+                    <Entry Text="{Binding Description}" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout
+                    Hint="Text">
+                    <Editor x:Name="prePromp"
+                            HeightRequest="250"
+                            Text="{Binding Text}">
+                    </Editor>
+                </sf:SfTextInputLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
