@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using Models;
 using System.Collections.Generic;
 
-public partial class PrePromptPageModel : ObservableObject
+public partial class PrePromptPageModel(PromptRepository repository) : ObservableObject
 {
     [ObservableProperty]
     private string _description = string.Empty;
@@ -18,7 +18,13 @@ public partial class PrePromptPageModel : ObservableObject
     [RelayCommand]
     private async Task Save()
     {
-        await AppShell.DisplayToastAsync("PrePrompt saved.");
+        var prompt = new Prompt
+        {
+            Description = _description,
+            Text = _text
+        };
+
+        repository.Add(prompt);
     }
 
 }

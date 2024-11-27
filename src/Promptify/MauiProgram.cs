@@ -27,6 +27,7 @@ namespace Promptify
                     fonts.AddFont("SegoeUI-Semibold.ttf", "SegoeSemibold");
                     fonts.AddFont("FluentSystemIcons-Regular.ttf", FluentUI.FontFamily);
                 })
+                .RegisterRepositories()
                 .RegisterAppServices()
                 .RegisterPageModels();
 
@@ -49,6 +50,12 @@ namespace Promptify
             builder.Services.AddTransientWithShellRoute<TaskDetailPage, TaskDetailPageModel>("task");
 
             return builder.Build();
+        }
+
+        public static MauiAppBuilder RegisterRepositories(this MauiAppBuilder builder)
+        {
+            builder.Services.AddSingleton<PromptRepository>();
+            return builder;
         }
 
         public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder builder)
