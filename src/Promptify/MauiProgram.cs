@@ -2,8 +2,6 @@
 using Microsoft.Extensions.Logging;
 using Promptify.Services.Navigation;
 using Promptify.Services.PrePrompt;
-using Promptify.View;
-using Promptify.ViewModels;
 using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace Promptify
