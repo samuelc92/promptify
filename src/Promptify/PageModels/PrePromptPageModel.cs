@@ -14,4 +14,11 @@ public partial class PrePromptPageModel : ObservableObject
 
     [ObservableProperty]
     private List<Prompt> _prompts = [];
+
+    [RelayCommand]
+    private async Task Save()
+    {
+        await AppShell.DisplayToastAsync("PrePrompt saved.");
+    }
+
 }
