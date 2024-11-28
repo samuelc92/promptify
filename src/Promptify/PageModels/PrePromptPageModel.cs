@@ -25,6 +25,7 @@ public partial class PrePromptPageModel(PromptRepository repository) : Observabl
         };
 
         repository.Add(prompt);
+        await Shell.Current.GoToAsync("..");
     }
 
 }
