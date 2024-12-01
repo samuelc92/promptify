@@ -9,7 +9,7 @@
              xmlns:fonts="clr-namespace:Fonts"
              x:Class="Promptify.Pages.PrePromptPage"
              x:DataType="pageModels:PrePromptPageModel"
-             Title="PrePromptPage">
+             Title="PrePrompt">
     <Grid>
         <ScrollView>
             <VerticalStackLayout Padding="{StaticResource LayoutPadding}" Spacing="{StaticResource LayoutSpacing}">
