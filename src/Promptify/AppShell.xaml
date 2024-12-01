@@ -29,8 +29,8 @@
     <ShellContent
         Title="PrePrompt"
         Icon="{StaticResource IconMeta}"
-        ContentTemplate="{DataTemplate pages:PrePromptPage}"
-        Route="PrePrompt" />
+        ContentTemplate="{DataTemplate pages:PrePromptListPage}"
+        Route="preprompts" />
 
     <Shell.FlyoutFooter>
         <Grid Padding="15">
