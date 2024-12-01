@@ -16,12 +16,6 @@ public partial class PrePromptPageModel(PromptRepository repository) : Observabl
     private List<Prompt> _prompts = [];
 
     [RelayCommand]
-    private async Task Appearing()
-    {
-        Prompts = repository.GetAll();
-    }
-
-    [RelayCommand]
     private async Task Save()
     {
         var prompt = new Prompt
