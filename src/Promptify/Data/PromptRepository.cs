@@ -12,4 +12,6 @@ public class PromptRepository(ILogger<PromptRepository> logger)
         _prompts.Add(prompt);
         logger.LogInformation("Prompt added {Prompt}", prompt);
     }
+
+    public List<Prompt> GetAll() => _prompts;
 }
