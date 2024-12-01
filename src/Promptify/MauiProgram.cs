@@ -66,7 +66,8 @@ namespace Promptify
 
         public static MauiAppBuilder RegisterPageModels(this MauiAppBuilder builder)
         {
-            builder.Services.AddSingleton<PrePromptPageModel>();
+            builder.Services.AddSingleton<PrePromptListPageModel>();
+            builder.Services.AddTransientWithShellRoute<PrePromptPage, PrePromptPageModel>("preprompt");
 
             return builder;
         }
