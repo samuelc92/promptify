@@ -9,6 +9,8 @@ public class PromptRepository(ILogger<PromptRepository> logger)
 
     public void Add(Prompt prompt)
     {
+        var lastPrompt = _prompts.LastOrDefault();
+        prompt.Id = lastPrompt is null ? 0 : lastPrompt.Id + 1;
         _prompts.Add(prompt);
         logger.LogInformation("Prompt added {Prompt}", prompt);
     }
