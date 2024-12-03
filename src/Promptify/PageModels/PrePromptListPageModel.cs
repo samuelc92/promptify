@@ -15,7 +15,7 @@ public partial class PrePromptListPageModel(PromptRepository repository) : Obser
 
     [RelayCommand]
     Task NavigateToPrePrompt(Prompt prompt)
-        => Shell.Current.GoToAsync($"preprompt?id={prompt.Text}");
+        => Shell.Current.GoToAsync($"preprompt?id={prompt.Id}");
 
     [RelayCommand]
     async Task AddPrePrompt()
